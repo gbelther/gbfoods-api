@@ -1,0 +1,28 @@
+{
+  "name": "gbfoods-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "GBelther <belthergabriel@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/pg": "^8.6.4",
+    "@types/swagger-ui-express": "^4.1.3",
+    "@types/uuid": "^8.3.4",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
+    "pg": "^8.7.1",
+    "swagger-ui-express": "^4.3.0",
+    "tsyringe": "^4.6.0",
+    "typeorm": "^0.2.41",
+    "uuid": "^8.3.2"
+  }
+}
