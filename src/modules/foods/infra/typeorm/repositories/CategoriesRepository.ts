@@ -21,6 +21,10 @@ class CategoriesRepository implements ICategoriesRepository {
 
     await this.repository.save(category);
   }
+
+  async list(): Promise<Category[]> {
+    return await this.repository.find();
+  }
 }
 
 export { CategoriesRepository };
