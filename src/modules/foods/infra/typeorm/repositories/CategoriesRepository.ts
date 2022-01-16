@@ -25,6 +25,10 @@ class CategoriesRepository implements ICategoriesRepository {
   async list(): Promise<Category[]> {
     return await this.repository.find();
   }
+
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id);
+  }
 }
 
 export { CategoriesRepository };

@@ -8,6 +8,7 @@ interface ICreateCategoryDTO {
 interface ICategoriesRepository {
   create({ name, description }: ICreateCategoryDTO): Promise<Category>;
   list(): Promise<Category[]>;
+  delete(id: string): Promise<void>;
 }
 
 export { ICategoriesRepository, ICreateCategoryDTO };
