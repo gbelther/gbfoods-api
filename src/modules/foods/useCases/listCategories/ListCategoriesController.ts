@@ -9,6 +9,10 @@ class ListCategoriesController {
 
     const categories = await listCategoriesUseCase.execute();
 
+    if (!categories || categories.length === 0) {
+      return response.status(204).send();
+    }
+
     return response.json(categories);
   }
 }
