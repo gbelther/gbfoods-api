@@ -28,8 +28,8 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
     return this.categories;
   }
 
-  delete(id: string): Promise<void> {
-    throw new Error("Method not implemented.");
+  async delete(id: string): Promise<void> {
+    this.categories = this.categories.filter((category) => category.id !== id);
   }
 
   async findByName(name: string): Promise<Category> {
