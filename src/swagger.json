@@ -40,6 +40,31 @@
             "description": "Created"
           }
         }
+      },
+      "get": {
+        "tags": ["Category"],
+        "summary": "List categories",
+        "description": "List all categories",
+        "responses": {
+          "200": {
+            "description": "Listed"
+          },
+          "204": {
+            "description": "No category found"
+          }
+        }
+      }
+    },
+    "/categories/{id}": {
+      "delete": {
+        "tags": ["Category"],
+        "summary": "Delete a category",
+        "description": "Delete a existing category",
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
       }
     }
   }
