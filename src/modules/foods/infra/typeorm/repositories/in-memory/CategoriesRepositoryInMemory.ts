@@ -24,8 +24,8 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
     return category;
   }
 
-  list(): Promise<Category[]> {
-    throw new Error("Method not implemented.");
+  async list(): Promise<Category[]> {
+    return this.categories;
   }
 
   delete(id: string): Promise<void> {
