@@ -1,4 +1,5 @@
 import { inject, injectable } from "tsyringe";
+import { Category } from "../../infra/typeorm/entities/Category";
 import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {
@@ -13,8 +14,8 @@ class CreateCategoryUseCase {
     private categoriesRepository: ICategoriesRepository
   ) {}
 
-  async execute({ name, description }: IRequest): Promise<void> {
-    this.categoriesRepository.create({ name, description });
+  async execute({ name, description }: IRequest): Promise<Category> {
+    return this.categoriesRepository.create({ name, description });
   }
 }
 
