@@ -18,7 +18,7 @@ export async function ensureAuthenticated(
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
-    throw new AppError("Token não encontrado!");
+    throw new AppError("Token não encontrado!", 401);
   }
 
   const [, token] = authHeader.split(" ");
@@ -30,11 +30,15 @@ export async function ensureAuthenticated(
     const user = usersRepository.findById(user_id);
 
     if (!user) {
-      throw new AppError("O usuário não existe!");
+      throw new AppError("O usuário não existe!", 401);
     }
 
     next();
   } catch (error) {
-    throw new AppError("Token inválido!");
+    if (error instanceof AppError) {
+      throw error;
+    } else {
+      throw new AppError("Token inválido!", 401);
+    }
   }
 }
