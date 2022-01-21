@@ -3,6 +3,7 @@ import { Router } from "express";
 import { CreateCategoryController } from "../../../../modules/foods/useCases/createCategory/CreateCategoryController";
 import { DeleteCategoryController } from "../../../../modules/foods/useCases/deleteCategory/DeleteCategoryController";
 import { ListCategoriesController } from "../../../../modules/foods/useCases/listCategories/ListCategoriesController";
+
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 
 const categoriesRoutes = Router();
