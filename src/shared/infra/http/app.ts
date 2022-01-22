@@ -4,6 +4,12 @@ import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 import cors from "cors";
 
+import {
+  JsonWebTokenError,
+  TokenExpiredError,
+  NotBeforeError,
+} from "jsonwebtoken";
+
 import "../../../shared/container";
 import createConnection from "../../../shared/infra/typeorm";
 
@@ -26,6 +32,17 @@ app.use(
     if (error instanceof AppError) {
       return response.status(error.statusCode).json({
         message: error.message,
+      });
+    }
+
+    if (
+      error instanceof NotBeforeError ||
+      error instanceof JsonWebTokenError ||
+      error instanceof TokenExpiredError
+    ) {
+      return response.status(401).json({
+        status: "error",
+        message: "Token inválido",
       });
     }
 

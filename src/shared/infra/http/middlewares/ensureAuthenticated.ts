@@ -7,7 +7,7 @@ import { UsersRepository } from "../../../../modules/accounts/infra/typeorm/repo
 import { AppError } from "../../../errors/AppError";
 
 interface IPayload {
-  sub: string;
+  sub?: string;
 }
 
 export async function ensureAuthenticated(
@@ -35,10 +35,6 @@ export async function ensureAuthenticated(
 
     next();
   } catch (error) {
-    if (error instanceof AppError) {
-      throw error;
-    } else {
-      throw new AppError("Token inválido!", 401);
-    }
+    throw new AppError("Token inválido!", 401);
   }
 }
